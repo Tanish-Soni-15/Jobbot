@@ -22,7 +22,7 @@ server.use(cookieParser());
 server.use(express.static(path.join(__dirname, "build")));
 
 const allowedOrigins = [
-  'https://jobbot-lac.vercel.app/',
+  'https://jobbot-lac.vercel.app',
   process.env.CLIENT_URL
 ];
 
