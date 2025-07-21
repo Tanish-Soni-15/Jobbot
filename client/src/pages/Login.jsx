@@ -31,18 +31,18 @@ function Login() {
       credentials: "include",
     });
      const Result = await response.json();
+     
     if (response.ok) {
      navigate("/analyze");
     } 
     else{
-
+      alert(Result.message)
     }
     setIsLoading(false);
-    navigate("/analyze");
+    
   };
 
   const handleSocialAuth = (provider) => {
-    console.log(`${provider} authentication`);
   };
 
   return (

@@ -104,7 +104,7 @@ const sendVerificationEmail = async (req, res) => {
     };
 
     const resp = await transporter.sendMail(mailOptions);
-    console.log("email send");
+   
     res.status(200).json({ message: "Done" });
   } catch (error) {
     console.error("❌ Error sending verification email:", error);
@@ -113,7 +113,7 @@ const sendVerificationEmail = async (req, res) => {
 };
 const createUser = async (req, res) => {
   const existuser = await User.findOne({ email: req.body.email });
-  console.log(existuser);
+
 
   if (!existuser) {
     bcrypt.hash(req.body.password, saltRounds, async function (err, hash) {
@@ -145,18 +145,17 @@ const createUser = async (req, res) => {
 const deleteAccount = async (req, res) => {
   const token = req.cookies?.token;
   try {
-    console.log("delete");
     
     if (!token) {
       res.status(401).json({ message: "Unauthorized" });
     } else {
       const data = jwt.verify(token, "shhhhh");
-      console.log(data);
+  
       
       const resp = await User.findOne({ email: data.email });
 
       if (resp?.isVerified == "true") {
-console.log("lelo");
+
 
       const r=  await User.findOneAndDelete({email:resp?.email});
           res.clearCookie("token");
