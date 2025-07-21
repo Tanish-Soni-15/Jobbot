@@ -139,8 +139,7 @@ Your task is to **deeply compare and match** a given resume against a job descri
 
     let parsedResult;
 
-    parsedResult = JSON.parse(rawText); // Convert JSON string to object
-    console.log("✅ Parsed Result:", parsedResult);
+    parsedResult = JSON.parse(rawText);
     res.status(200).json({ success: true, result: parsedResult });
   } catch (err) {
     console.error("❌ Error in /analyze:", err);

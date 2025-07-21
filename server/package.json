@@ -4,7 +4,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+  "postinstall": "sed -i '/let isDebugMode/,/catch(function (err)/s/^/\\/\\//' ./node_modules/pdf-parse/index.js"
+
   },
   "keywords": [],
   "author": "",
