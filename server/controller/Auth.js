@@ -33,7 +33,7 @@ const LoginUser = async (req, res) => {
           const token = jwt.sign({ email: user.email }, "shhhhh");
           res.cookie("token", token, {
             httpOnly: true,
-            secure: false, // set to true if using HTTPS
+            secure: true, // set to true if using HTTPS
             sameSite: "Lax", // or "Strict"
             maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
           });
@@ -129,7 +129,7 @@ const createUser = async (req, res) => {
         const token = jwt.sign({ email: docs.email }, "shhhhh");
         res.cookie("token", token, {
           httpOnly: true,
-          secure: false, // set to true if using HTTPS
+          secure: true, // set to true if using HTTPS
           sameSite: "Lax", // or "Strict"
           maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
         });
